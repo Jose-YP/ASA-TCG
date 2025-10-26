@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/cards.png")
+@icon("res://Art/ProjSpecific/cards.png")
 ##Holds most fundamental actions needed for the game to run
 extends Node
 class_name Fundies
@@ -205,4 +205,5 @@ func next_turn():
 		stack_manager.draw(1)
 	
 	for player in cpu_players:
+		player.operating = home_turn == player.home_side
 		player.can_operate()

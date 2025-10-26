@@ -1,3 +1,4 @@
+##Responcible for displaying a single Slot's data, should not hold data except for the Slot itself
 extends Control
 class_name UI_Slot
 
@@ -6,17 +7,9 @@ class_name UI_Slot
 @export var active: bool = true
 @export var player: bool = true
 @export var home: bool = true
-@export_enum("Left","Right","Up","Down") var list_direction: int = 0
 
 @onready var name_section: RichTextLabel = %Name
 @onready var max_hp: RichTextLabel = %MaxHP
-@onready var tool: TextureRect = %Tool
-@onready var tm: TextureRect = %TM
-@onready var changes_display: Control = %ChangeDisplay
-@onready var typeContainer: Array[Node] = %TypeContainer.get_children()
-@onready var energy_container: Array[Node] = %EnergyTypes.get_children()
-@onready var list_offsets: Array[Vector2] = [Vector2(-size.x / 2, 0),
- Vector2(size.x / 2,0), Vector2(0,-size.y / 2), Vector2(0,size.y / 2)]
 
 #Unfinished, doesn't account for special energy
 var connected_slot: Slot = Slot.new()
@@ -26,7 +19,6 @@ var current_display: Node
 #--------------------------------------
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%ArtButton.spawn_direction = list_direction
 	if %ArtButton.benched: %ArtButton/PanelContainer.size = Vector2(149, 96)
 	clear()
 	connected_slot.slot_into(self)

@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/cards.png")
+@icon("res://Art/ProjSpecific/cards.png")
 ##Manages the arrays in the two players' CardStack resources
 ##Brings up any card lists as deemed necessary
 extends Node

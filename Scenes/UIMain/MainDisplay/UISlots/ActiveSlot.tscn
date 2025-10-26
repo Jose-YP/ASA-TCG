@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drg0sr7jdfiel"]
 
-[ext_resource type="Script" uid="uid://dyx0dq344mq7" path="res://Scenes/UIMain/MainDisplay/UISlot.gd" id="1_5twte"]
+[ext_resource type="Script" uid="uid://dyx0dq344mq7" path="res://Scenes/UIMain/MainDisplay/UISlots/UISlot.gd" id="1_5twte"]
 [ext_resource type="PackedScene" uid="uid://dp781vdb5kvc7" path="res://Scenes/UIComponents/art_button.tscn" id="2_2vo8j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nykcf"]

@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/cards.png")
+@icon("res://Art/ProjSpecific/cards.png")
 extends Resource
 class_name CardStack
 

@@ -1,7 +1,9 @@
-@icon("res://Art/ProjectSpecific/drag-and-drop.png")
+@icon("res://Art/ProjSpecific/drag-and-drop.png")
 ##Manages any actions on slots after declaring actions or playing cards
 extends Node
 class_name CardPlayer
+
+@onready var ui_act = $UIActions
 
 signal chosen
 
@@ -21,18 +23,18 @@ func _ready() -> void:
 #region CHOICE MANAGEMENT
 func start_add_choice(instruction: String, card: Card, play_as: int,
  bool_fun: Callable, reversable: bool):
-	Glob.fundies.ui_actions.set_adding_card(card)
+	ui_act.set_adding_card(card)
 	set_reversable(reversable)
 	hold_playing = card
 	hold_candidate = null
 	await generic_choice(instruction, bool_fun)
 	
-	if Glob.fundies.ui_actions.selected_slot:
+	if ui_act.selected_slot:
 		var went_back: bool = false
 		if card.has_before_prompt() and not Convert.playing_as_pokemon(play_as):
-			Glob.fundies.record_single_src_trg(Glob.fundies.ui_actions.selected_slot)
+			SigBus.record_src_trg.emit(ui_act.selected_slot)
 			went_back = await card.play_before_prompt()
-			Glob.fundies.remove_top_source_target()
+			SigBus.remove_src_trg.emit()
 		
 		if not went_back:
 			hold_candidate.use_card(card, play_as, reversable)
@@ -59,7 +61,6 @@ func get_choice_candidates(instruction: String, bool_fun: Callable, reversable: 
 
 func generic_choice(instruction: String, bool_fun: Callable,\
  _choosing_player: Consts.PLAYER_TYPES = Consts.PLAYER_TYPES.PLAYER):
-	var ui_act: SlotUIActions = $UIActions
 	ui_act.get_allowed_slots(bool_fun)
 	
 	var allow_slots: Array[UI_Slot] = ui_act.allowed_slots
@@ -80,6 +81,6 @@ func record_candidate(slot: Slot):
 	hold_candidate = slot
 
 func set_reversable(reversable: bool):
-	Glob.fundies.ui_actions.can_reverse = reversable
+	ui_act.can_reverse = reversable
 #endregion
 #--------------------------------------

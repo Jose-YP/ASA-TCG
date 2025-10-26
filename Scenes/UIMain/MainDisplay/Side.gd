@@ -1,4 +1,5 @@
 @tool
+##Holds the UI for a single side
 extends Control
 class_name CardSideUI
 
@@ -84,6 +85,3 @@ func insert_slot(slot: Slot, predefined: bool = false):
 			if not ui_slot.connected_slot.is_filled():
 				ui_slot.attatch_pokeslot(slot, true)
 				return
-
-func supporter_played() -> bool:
-	return etc_display.current_supporter != null

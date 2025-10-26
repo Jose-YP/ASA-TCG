@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/trading.png")
+@icon("res://Art/ProjSpecific/swap.png")
 ##For contextual action on current slots, like playing, attatchments and selection
 extends Node
 class_name SlotUIActions
@@ -14,6 +14,7 @@ class_name SlotUIActions
 
 signal chosen
 signal choice_ready
+signal record_candidate(slot: Slot)
 
 var adding_card: Card = null
 var selected_slot: Slot = null
@@ -41,7 +42,7 @@ func left_button_actions(target: Slot):
 	if choosing:
 		if adding_card:
 			selected_slot = target
-			Glob.fundies.card_player.record_candidate(target)
+			record_candidate.emit(target)
 			adding_card = null
 		else:
 			SigBus.get_candidate.emit(target)

@@ -81,12 +81,12 @@ func _on_check_pressed():
 #Tutor and discard record source and target on effect call
 func _on_tutor_pressed() -> void:
 	print("Tutor ", origin_button.card.name, " from ", origin_button.parent.stack)
-	SigBus.tutor_card.emit(origin_button.card)
+	#SigBus.tutor_card.emit(origin_button.card)
 	Glob.full_ui.remove_top_ui()
 
 func _on_discard_pressed() -> void:
 	print("Discard ", origin_button.card.name, " from ", origin_button.parent.stack)
-	SigBus.tutor_card.emit(origin_button.card)
+	#SigBus.tutor_card.emit(origin_button.card)
 	Glob.full_ui.remove_top_ui()
 
 func on_entered_check():
@@ -98,7 +98,7 @@ func on_exited_check():
 		items[i].disabled = false
 
 func _on_cancel_pressed() -> void:
-	SigBus.cancel_tutor.emit(origin_button)
+	#SigBus.cancel_tutor.emit(origin_button)
 	Glob.full_ui.remove_top_ui()
 
 #endregion

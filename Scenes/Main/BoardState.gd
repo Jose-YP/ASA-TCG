@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/alpha.png")
+@icon("res://Art/ProjSpecific/alpha.png")
 ##Meant to hold any gamewide rules and states, set everything up and determine when to end
 extends Control
 class_name BoardNode

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Identifier" load_steps=4 format=3 uid="uid://cc8gqvv6cdyre"]
+
+[ext_resource type="Script" uid="uid://cih58spu5bgmb" path="res://Code/ResourceMakers/General/IdentifierMaker.gd" id="1_8pcf5"]
+[ext_resource type="Script" uid="uid://dgj24sh5lmhyb" path="res://Code/ResourceMakers/General/IdentifierDictMaker.gd" id="1_fhmnv"]
+
+[sub_resource type="Resource" id="Resource_fhmnv"]
+script = ExtResource("1_fhmnv")
+Comparision = {}
+metadata/_custom_type_script = "uid://dgj24sh5lmhyb"
+
+[resource]
+script = ExtResource("1_8pcf5")
+comparisions = Dictionary[int, ExtResource("1_fhmnv")]({
+0: SubResource("Resource_fhmnv")
+})
+metadata/_custom_type_script = "uid://cih58spu5bgmb"

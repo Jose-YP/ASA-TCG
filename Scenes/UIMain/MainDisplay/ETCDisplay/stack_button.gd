@@ -1,3 +1,4 @@
+##Shows the number of cards in a single CardStack array, press it to see the stack
 extends PanelContainer
 class_name CardStackButton
 

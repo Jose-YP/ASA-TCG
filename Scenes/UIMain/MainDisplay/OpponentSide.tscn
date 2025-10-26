@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvpkx1fqkwvd7"]
 
 [ext_resource type="Script" uid="uid://bdxsijaewfo8b" path="res://Scenes/UIMain/MainDisplay/Side.gd" id="1_iv2kv"]
-[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/BenchSlot.tscn" id="1_o88tv"]
-[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/ActiveSlot.tscn" id="2_fs4jj"]
-[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/etc_display.tscn" id="3_he6l3"]
+[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/UISlots/BenchSlot.tscn" id="1_o88tv"]
+[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/UISlots/ActiveSlot.tscn" id="2_fs4jj"]
+[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/ETCDisplay/etc_display.tscn" id="3_he6l3"]
 
 [node name="OpponentSide" type="Control"]
 layout_mode = 3

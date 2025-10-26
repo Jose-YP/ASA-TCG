@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o2i8sw2v3cqb"]
 
-[ext_resource type="Script" uid="uid://mqn6h47ujrvd" path="res://Scenes/UIMain/MainDisplay/stack_button.gd" id="1_8c7qw"]
+[ext_resource type="Script" uid="uid://mqn6h47ujrvd" path="res://Scenes/UIMain/MainDisplay/ETCDisplay/stack_button.gd" id="1_8c7qw"]
 [ext_resource type="Texture2D" uid="uid://o5e301uqc04v" path="res://Art/ProjSpecific/recycle-bin.png" id="1_k2gto"]
 
 [node name="StackButton" type="PanelContainer"]

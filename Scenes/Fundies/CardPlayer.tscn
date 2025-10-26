@@ -7,3 +7,5 @@
 script = ExtResource("1_g6ryq")
 
 [node name="UIActions" parent="." instance=ExtResource("2_so688")]
+
+[connection signal="record_candidate" from="UIActions" to="." method="record_candidate"]

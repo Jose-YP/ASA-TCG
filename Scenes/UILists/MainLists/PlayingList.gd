@@ -1,4 +1,4 @@
-@icon("res://Art/ProjectSpecific/list(1).png")
+@icon("res://Art/ProjSpecific/list(1).png")
 ##Meant to hold a group of cards to see which one will be used next
 ##Whether that be for tutoring, playing, etc
 extends Control

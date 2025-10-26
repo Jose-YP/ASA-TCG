@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dognokjork36j"]
 
-[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/BenchSlot.tscn" id="1_j2t4b"]
+[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/UISlots/BenchSlot.tscn" id="1_j2t4b"]
 [ext_resource type="Script" uid="uid://bdxsijaewfo8b" path="res://Scenes/UIMain/MainDisplay/Side.gd" id="1_j016u"]
-[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/ActiveSlot.tscn" id="1_n754v"]
-[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/etc_display.tscn" id="4_5awab"]
+[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/UISlots/ActiveSlot.tscn" id="1_n754v"]
+[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/ETCDisplay/etc_display.tscn" id="4_5awab"]
 
 [node name="PlayerSide" type="Control"]
 layout_mode = 3

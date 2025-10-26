@@ -6,7 +6,7 @@ class_name CPU_Player
 var operating: bool = false
 
 func can_operate():
-	if Glob.fundies.home_turn == home_side:
+	if operating:
 		it_is_my_turn()
 	else:
 		not_my_turn()
