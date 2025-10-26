@@ -72,7 +72,7 @@ func play_card(card: Card, destination: Consts.STACKS, home: bool = Glob.fundies
 		discard_card(card)
 	else:
 		get_stacks(home).cards_in_play.append(card)
-	Glob.fundies.ui_actions.reset_ui()
+	Glob.fundies.card_player.ui_actions.reset_ui()
 
 func play_supporter(card: Card, home: bool):
 	var side: CardSideUI = Glob.full_ui.get_home_side(home)

@@ -98,7 +98,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if ui_stack[-1].has_method("manage_input"):
 		ui_stack[-1].manage_input(event)
-	if event.is_action_pressed("A") and Glob.checking:
+	if event.is_action_pressed("ui_accept") and Glob.checking:
 		remove_card()
 
 #Set top ui every time a new one is created
