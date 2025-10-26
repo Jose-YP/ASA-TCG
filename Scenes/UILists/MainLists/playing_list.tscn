@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwn2qsmdqyhiw"]
+
+[ext_resource type="Script" uid="uid://t2c3o2t83ked" path="res://Scenes/UILists/MainLists/PlayingList.gd" id="2_dv6ib"]
+
+[node name="PlayingList" type="ScrollContainer"]
+custom_minimum_size = Vector2(420, 510)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+follow_focus = true
+script = ExtResource("2_dv6ib")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="CardList" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2

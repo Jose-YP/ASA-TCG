@@ -1,5 +1,7 @@
+##Show a compressed view of the current active card
 extends Button
 
+##Probably change the dimentions when we get the final card art layout
 #--------------------------------------
 #region VARIABLES
 @export var pokemon: bool = true

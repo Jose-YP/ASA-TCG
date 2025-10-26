@@ -1,4 +1,5 @@
 @icon("res://Art/ProjectSpecific/drag-and-drop.png")
+##Manages any actions on slots after declaring actions or playing cards
 extends Node
 class_name CardPlayer
 

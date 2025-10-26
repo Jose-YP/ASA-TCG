@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnk7pe6vmdplw"]
+
+[ext_resource type="Script" uid="uid://duyxgybwam671" path="res://Scenes/UILists/ListItems/play_button.gd" id="1_xeue6"]
+[ext_resource type="Texture2D" uid="uid://ybu35wloe1us" path="res://Art/ProjSpecific/14.jpg" id="2_7ejy0"]
+
+[node name="PlayButton" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 60)
+anchors_preset = -1
+anchor_left = 0.314
+anchor_top = 0.458
+anchor_right = 0.686
+anchor_bottom = 0.542
+offset_left = -0.120026
+offset_top = 0.23999
+offset_right = 0.119934
+offset_bottom = -0.240051
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+disabled = true
+script = ExtResource("1_xeue6")
+option_offset = Vector2(-8, -32)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 405.0
+offset_bottom = 59.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftSpawn" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_right = 13
+
+[node name="Class" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+bbcode_enabled = true
+text = "Stage 1"
+fit_content = true
+
+[node name="Art" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(90, 52)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_7ejy0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(206, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+bbcode_enabled = true
+text = "Team Magma's Mightyena"
+fit_content = true
+
+[node name="RightSpawn" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_right = 15
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 19

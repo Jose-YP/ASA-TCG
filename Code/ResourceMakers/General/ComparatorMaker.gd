@@ -1,5 +1,4 @@
 ##Responcible for comparing two counters together
-@icon("res://Art/ProjectSpecific/car.png")
 extends Resource
 class_name Comparator
 

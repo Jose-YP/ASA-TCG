@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://tobk6a46hgx"]
+
+[ext_resource type="Script" uid="uid://bibudy0jwuij3" path="res://Scenes/UILists/ListItems/item_options_copy.gd" id="1_uc12c"]
+[ext_resource type="Theme" uid="uid://bfw6ylcttychc" path="res://Themes/Themes/AverageButton.tres" id="1_ygpa5"]
+
+[node name="ItemOptions" type="Control"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_ygpa5")
+script = ExtResource("1_uc12c")
+
+[node name="PlayAs" type="PanelContainer" parent="."]
+layout_mode = 0
+
+[node name="Items" type="VBoxContainer" parent="PlayAs"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Play" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "PLay"
+
+[node name="Tutor" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Add to Hand"
+
+[node name="Discard" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Discard"
+
+[node name="Attatch" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Attatch"
+
+[node name="Cancel" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Return"
+
+[node name="Check" type="Button" parent="PlayAs/Items"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Check"
+
+[connection signal="pressed" from="PlayAs/Items/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PlayAs/Items/Tutor" to="." method="_on_tutor_pressed"]
+[connection signal="pressed" from="PlayAs/Items/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="PlayAs/Items/Attatch" to="." method="_on_tutor_pressed"]
+[connection signal="pressed" from="PlayAs/Items/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="PlayAs/Items/Check" to="." method="_on_check_pressed"]

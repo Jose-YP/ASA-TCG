@@ -53,6 +53,10 @@ folder_colors={
 "res://addons/": "orange"
 }
 
+[gui]
+
+theme/custom="uid://bfw6ylcttychc"
+
 [input]
 
 TEST={

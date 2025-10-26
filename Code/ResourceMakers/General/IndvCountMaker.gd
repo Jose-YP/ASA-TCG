@@ -1,5 +1,4 @@
 @tool
-@icon("res://Art/ProjectSpecific/car.png")
 ##Responcible for counting the number of anything on the board
 extends Resource
 class_name IndvCounter

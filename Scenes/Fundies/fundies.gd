@@ -1,4 +1,5 @@
 @icon("res://Art/ProjectSpecific/cards.png")
+##Holds most fundamental actions needed for the game to run
 extends Node
 class_name Fundies
 
@@ -13,10 +14,9 @@ class_name Fundies
 
 var turn_number: int = 1
 var home_turn: bool = true
-var atk_efect: bool = false
-var home_targets: Array[Array]
-var away_targets: Array[Array]
-var source_stack: Array[bool]
+var home_targets: Array[Array] ##Targets are whoever is involved in an action
+var away_targets: Array[Array] ##Targeets are removed after the action resolves
+var source_stack: Array[bool] ##Source is the side that initiates an action
 var used_turn_abilities: Array[String]
 var used_emit_abilities: Array[String]
 var cpu_players: Array[CPU_Player]
@@ -67,9 +67,6 @@ func print_slots(sides: Consts.SIDES, slots: Consts.SLOTS, init_string: String):
 
 #--------------------------------------
 #region HELPERS
-func get_side_ui() -> CardSideUI:
-	return Glob.full_ui.get_home_side(home_turn)
-
 func get_considered_home(side: Consts.SIDES):
 	match side:
 		Consts.SIDES.ATTACKING:
@@ -122,6 +119,7 @@ func find_allowed_slots(condition: Callable, sides: Consts.SIDES,\
 	 return condition.call(uislot.connected_slot))
 
 #region TARGET SOURCE MANAGEMENT
+##Record src_trg based on the attacker and whoever is defending
 func record_attack_src_trg(is_home: bool, atk_trg: Array, def_trg: Array):
 	source_stack.append(is_home)
 	if is_home:
@@ -131,12 +129,13 @@ func record_attack_src_trg(is_home: bool, atk_trg: Array, def_trg: Array):
 		home_targets.append(def_trg)
 		away_targets.append(atk_trg)
 
-#First record then print out what I can get from this, then rmeove when used up
+##Record src_trg based on custom slots
 func record_source_target(is_home: bool, home_trg: Array, away_trg: Array):
 	source_stack.append(is_home)
 	home_targets.append(home_trg)
 	away_targets.append(away_trg)
 
+##Record src_trg based on a single slot
 func record_single_src_trg(slot: Slot):
 	var home_trg: Array = []
 	var away_trg: Array = []
@@ -153,6 +152,7 @@ func record_prev_src_trg_from_self(slot: Slot):
 	home_targets.append(home_targets[-1])
 	away_targets.append(away_targets[-1])
 
+##The only way src_trg should be removed
 func remove_top_source_target():
 	source_stack.pop_back()
 	home_targets.pop_back()

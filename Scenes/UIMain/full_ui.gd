@@ -1,9 +1,8 @@
+##Meant to hold the main game's UI, any new control nodes should be sent here
 extends Control
 class_name FullBoardUI
 
 @export var disapear_timing: float = .075
-
-var current_card: Control
 
 @onready var end_turn: Button = $EndTurn
 @onready var player_side: CardSideUI = $PlayerSide
@@ -11,14 +10,12 @@ var current_card: Control
 @onready var sides: Array[CardSideUI] = [player_side, opponent_side]
 
 var home_side: Consts.PLAYER_TYPES
-var ui_stack: Array[Control] = [self]
-var every_slot: Array[UI_Slot]
+var ui_stack: Array[Control] = [self] ##Determines UI priority, who gets to be controled, closed and minimized
+var every_slot: Array[UI_Slot] ##Quick way of getting every UI Slot
 
 #--------------------------------------
 #region INITALIZATION & PROCESSING
 func _ready() -> void:
-	%ArtButton.get_child(0).size = %ArtButton.size
-	%ArtButton.current_card = null
 	every_slot = player_side.get_slots() + opponent_side.get_slots()
 
 #endregion

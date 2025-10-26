@@ -1,5 +1,4 @@
 @tool
-@icon("res://Art/ExpansionIcons/SetSymbolTeam_Magma_vs_Team_Aqua.png")
 extends Button
 class_name Minimize_Button
 

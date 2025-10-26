@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://db62dvlhio3c1"]
+
+[ext_resource type="Script" uid="uid://bugkamr28qyrx" path="res://Scenes/UILists/MainLists/RegList.gd" id="2_xgpx8"]
+[ext_resource type="PackedScene" uid="uid://bttlpdvhmocn3" path="res://Scenes/UIComponents/HeadFoot/header.tscn" id="3_n1wp1"]
+[ext_resource type="PackedScene" uid="uid://dwn2qsmdqyhiw" path="res://Scenes/UILists/MainLists/playing_list.tscn" id="4_fbbbi"]
+[ext_resource type="PackedScene" uid="uid://c28rtuj3kak48" path="res://Scenes/UIComponents/HeadFoot/Footer.tscn" id="6_yop4x"]
+
+[node name="RegControl" type="Control"]
+editor_description = "This exists since if where a panel, any node inside would be locked in the same position"
+layout_mode = 3
+anchors_preset = 0
+offset_right = 420.0
+offset_bottom = 583.0
+script = ExtResource("2_xgpx8")
+
+[node name="RegList" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RegList"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Header" parent="RegList/VBoxContainer" node_paths=PackedStringArray("dragging_node", "shrinkNodes", "hideNodes") instance=ExtResource("3_n1wp1")]
+unique_name_in_owner = true
+layout_mode = 2
+closable = true
+dragging_node = NodePath("../../..")
+shrinkNodes = [NodePath("../PlayingList")]
+hideNodes = [NodePath("../Footer")]
+
+[node name="PlayingList" parent="RegList/VBoxContainer" node_paths=PackedStringArray("par") instance=ExtResource("4_fbbbi")]
+unique_name_in_owner = true
+layout_mode = 2
+par = NodePath("../../..")
+
+[node name="Footer" parent="RegList/VBoxContainer" node_paths=PackedStringArray("dragging_node") instance=ExtResource("6_yop4x")]
+unique_name_in_owner = true
+layout_mode = 2
+dragging_node = NodePath("../../..")
+
+[connection signal="finished" from="RegList/VBoxContainer/PlayingList" to="RegList" method="_on_playing_list_finished"]

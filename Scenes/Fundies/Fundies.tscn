@@ -7,7 +7,6 @@
 
 [node name="Fundies" type="Node"]
 script = ExtResource("1_fh4v4")
-first_turn = null
 
 [node name="PassTurnGraphic" parent="." instance=ExtResource("2_6hj6q")]
 

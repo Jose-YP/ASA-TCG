@@ -1,4 +1,5 @@
 @icon("res://Art/ProjectSpecific/trading.png")
+##For contextual action on current slots, like playing, attatchments and selection
 extends Node
 class_name SlotUIActions
 

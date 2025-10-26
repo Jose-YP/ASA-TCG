@@ -1,4 +1,3 @@
-@icon("res://Art/ExpansionIcons/40px-SetSymbolUnseen_Forces.png")
 extends Button
 class_name Draggable_Control
 
