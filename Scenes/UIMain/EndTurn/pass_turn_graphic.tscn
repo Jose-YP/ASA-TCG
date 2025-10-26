@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8byf16paeoaj"]
+
+[ext_resource type="Script" uid="uid://b1g7b02t7wlqp" path="res://Scenes/UIMain/EndTurn/pass_turn_graphic.gd" id="1_q6l2s"]
+[ext_resource type="Texture2D" uid="uid://d15kq6tnwaw8c" path="res://icon.svg" id="2_p5dgr"]
+
+[sub_resource type="Animation" id="Animation_mxts8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/TurnGraphic:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(184, 296)]
+}
+
+[sub_resource type="Animation" id="Animation_u6r2p"]
+resource_name = "TurnChange"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.16667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/TurnGraphic:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.233333, 1.26667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1100, 296), Vector2(200, 296), Vector2(164, 296), Vector2(-1000, 296)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t211d"]
+_data = {
+&"RESET": SubResource("Animation_mxts8"),
+&"TurnChange": SubResource("Animation_u6r2p")
+}
+
+[node name="PassTurnGraphic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_q6l2s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="TurnGraphic" type="TabContainer" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1100.0
+offset_top = -64.0
+offset_right = 663.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="HomeTurn" type="TextureRect" parent="ColorRect/TurnGraphic"]
+layout_mode = 2
+texture = ExtResource("2_p5dgr")
+metadata/_tab_index = 0
+
+[node name="AwayTurn" type="TextureRect" parent="ColorRect/TurnGraphic"]
+visible = false
+self_modulate = Color(1, 0.17, 0.17, 1)
+layout_mode = 2
+texture = ExtResource("2_p5dgr")
+metadata/_tab_index = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t211d")
+}

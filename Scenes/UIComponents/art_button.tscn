@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://dp781vdb5kvc7"]
+
+[ext_resource type="Material" uid="uid://c60xa0l57yvax" path="res://Shaders/DefaultShine.tres" id="1_q565r"]
+[ext_resource type="Theme" uid="uid://bfw6ylcttychc" path="res://Themes/Themes/AverageButton.tres" id="2_q565r"]
+[ext_resource type="Texture2D" uid="uid://d15kq6tnwaw8c" path="res://icon.svg" id="2_rt8ma"]
+[ext_resource type="Script" uid="uid://dpnlvtrdt8d04" path="res://Scenes/UIComponents/art_button.gd" id="2_vikux"]
+
+[sub_resource type="Animation" id="Animation_lqavg"]
+resource_name = "BodyLoop"
+length = 1.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 0.63728034),
+"update": 0,
+"values": [Color(1, 2, 1, 1), Color(1, 4, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dvhpw"]
+resource_name = "PowerLoop"
+length = 1.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.25),
+"transitions": PackedFloat32Array(1, 0.6597539),
+"update": 0,
+"values": [Color(2.435, 1.1309683, 1.0733863, 1), Color(6, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bk8m5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kns08"]
+_data = {
+&"BodyLoop": SubResource("Animation_lqavg"),
+&"PowerLoop": SubResource("Animation_dvhpw"),
+&"RESET": SubResource("Animation_bk8m5")
+}
+
+[node name="ArtButton" type="Button"]
+material = ExtResource("1_q565r")
+custom_minimum_size = Vector2(195, 120)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_q565r")
+button_mask = 3
+script = ExtResource("2_vikux")
+pokemon = false
+benched = true
+
+[node name="PanelContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 195.0
+offset_bottom = 120.0
+
+[node name="Art" type="TextureRect" parent="PanelContainer"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(189, 114)
+layout_mode = 2
+texture = ExtResource("2_rt8ma")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_kns08")
+}
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,70 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://q5xl10u2qxh4"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_ghcxq"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_odm2v"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_4n8dn"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_otmdk"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_54r1e"]
+resource_name = "PitchShift"
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"ManageMusic"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -12.4611
+bus/2/send = &"Music"
+bus/3/name = &"SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectLimiter_ghcxq")
+bus/3/effect/0/enabled = true
+bus/4/name = &"BoardSFX"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/5/name = &"MenuSFX"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 2.44924
+bus/5/send = &"SFX"
+bus/6/name = &"BeadSFX"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = -17.0211
+bus/6/send = &"BoardSFX"
+bus/6/effect/0/effect = SubResource("AudioEffectPitchShift_odm2v")
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource("AudioEffectLimiter_4n8dn")
+bus/6/effect/1/enabled = true
+bus/7/name = &"Die"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.862736
+bus/7/send = &"BoardSFX"
+bus/7/effect/0/effect = SubResource("AudioEffectReverb_otmdk")
+bus/7/effect/0/enabled = true
+bus/7/effect/1/effect = SubResource("AudioEffectPitchShift_54r1e")
+bus/7/effect/1/enabled = true

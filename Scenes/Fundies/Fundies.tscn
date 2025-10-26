@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cni7lmrv7r06c"]
+
+[ext_resource type="Script" uid="uid://bx8jkdynp8c7" path="res://Scenes/Fundies/fundies.gd" id="1_fh4v4"]
+[ext_resource type="PackedScene" uid="uid://b8byf16paeoaj" path="res://Scenes/UIMain/EndTurn/pass_turn_graphic.tscn" id="2_6hj6q"]
+[ext_resource type="PackedScene" uid="uid://bm07a7wgsaxxp" path="res://Scenes/Fundies/CardPlayer.tscn" id="2_fh4v4"]
+[ext_resource type="PackedScene" uid="uid://cobenwsotye1q" path="res://Scenes/Fundies/CardStackManager.tscn" id="3_eym7l"]
+
+[node name="Fundies" type="Node"]
+script = ExtResource("1_fh4v4")
+first_turn = null
+
+[node name="PassTurnGraphic" parent="." instance=ExtResource("2_6hj6q")]
+
+[node name="CardPlayer" parent="." instance=ExtResource("2_fh4v4")]
+
+[node name="CardStackManager" parent="." instance=ExtResource("3_eym7l")]

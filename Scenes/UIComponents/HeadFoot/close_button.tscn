@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5d081uywglg"]
+
+[ext_resource type="Theme" uid="uid://bfw6ylcttychc" path="res://Themes/Themes/AverageButton.tres" id="1_q8h7l"]
+[ext_resource type="Script" uid="uid://d2srk56yh814x" path="res://Scenes/UIComponents/HeadFoot/close_button.gd" id="2_28ic8"]
+
+[node name="CloseButton" type="Button"]
+offset_left = 423.0
+offset_top = -20.0
+offset_right = 451.0
+offset_bottom = 7.0
+theme = ExtResource("1_q8h7l")
+theme_type_variation = &"PowerButton"
+text = "X"
+script = ExtResource("2_28ic8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

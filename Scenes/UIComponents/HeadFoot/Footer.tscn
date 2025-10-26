@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c28rtuj3kak48"]
+
+[ext_resource type="StyleBox" uid="uid://bvesf3hjv2bsl" path="res://Themes/StyleBoxes/GBADragBox.tres" id="1_agf5c"]
+[ext_resource type="PackedScene" uid="uid://cmmds4boaksl7" path="res://Scenes/UIComponents/HeadFoot/movable.tscn" id="2_68cux"]
+[ext_resource type="Script" uid="uid://djww7pa3pyice" path="res://Scenes/UIComponents/HeadFoot/footer.gd" id="2_vyyv0"]
+
+[node name="Footer" type="PanelContainer" node_paths=PackedStringArray("based_on")]
+custom_minimum_size = Vector2(0, 25)
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_agf5c")
+script = ExtResource("2_vyyv0")
+based_on = NodePath(".")
+
+[node name="Instructions" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]"
+fit_content = true
+
+[node name="Movable" parent="." node_paths=PackedStringArray("based_on") instance=ExtResource("2_68cux")]
+layout_mode = 2
+based_on = NodePath("..")

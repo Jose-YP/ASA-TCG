@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://df8x227c7a8q4"]
+
+[ext_resource type="Script" uid="uid://dyx0dq344mq7" path="res://Scenes/UIMain/MainDisplay/UISlot.gd" id="1_0tk7s"]
+[ext_resource type="PackedScene" uid="uid://dp781vdb5kvc7" path="res://Scenes/UIComponents/art_button.tscn" id="2_ax3at"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lj5ts"]
+resource_local_to_scene = true
+
+[node name="Bench" type="Control"]
+custom_minimum_size = Vector2(195, 154)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 195.0
+offset_bottom = 154.0
+script = ExtResource("1_0tk7s")
+active = false
+metadata/_edit_lock_ = true
+
+[node name="Main" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"ListPanel"
+
+[node name="Main" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = -12
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Main"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Name" type="RichTextLabel" parent="Main/Main/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 46)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Team Magma's
+Mightyena"
+fit_content = true
+
+[node name="MaxHP" type="RichTextLabel" parent="Main/Main/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(47, 46)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[u]HP[/u] 200/200"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="ArtButton" type="CenterContainer" parent="Main/Main"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Main/ArtButton"]
+layout_mode = 2
+
+[node name="ArtButton" parent="Main/Main/ArtButton/MarginContainer" instance=ExtResource("2_ax3at")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lj5ts")
+layout_mode = 2

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Ask" load_steps=2 format=3 uid="uid://cqsddsuxnb6an"]
+
+[ext_resource type="Script" uid="uid://dtnl63umq8h30" path="res://Code/ResourceMakers/General/AskMaker.gd" id="1_xnqpb"]
+
+[resource]
+script = ExtResource("1_xnqpb")
+metadata/_custom_type_script = "uid://dtnl63umq8h30"

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bihasri21bdv"]
+
+[ext_resource type="PackedScene" uid="uid://cmmds4boaksl7" path="res://Scenes/UIComponents/HeadFoot/movable.tscn" id="1_l3d1d"]
+[ext_resource type="Script" uid="uid://bgg5slurx174f" path="res://Scenes/UIMisc/input_number.gd" id="1_qxych"]
+
+[node name="InputNumber" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qxych")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DeepPannel"
+
+[node name="Movable" parent="PanelContainer/VBoxContainer/PanelContainer2" node_paths=PackedStringArray("dragging_node") instance=ExtResource("1_l3d1d")]
+layout_mode = 2
+dragging_node = NodePath("../../../..")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "Input Number"
+fit_content = true
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 200.0
+rounded = true
+alignment = 1
+
+[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

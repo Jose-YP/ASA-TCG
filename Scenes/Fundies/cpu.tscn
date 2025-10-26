@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://us8t6lxi3vvn"]
+
+[ext_resource type="Script" uid="uid://bicx60a30l2fs" path="res://Scenes/Fundies/cpu.gd" id="1_v86v6"]
+
+[node name="CPU" type="Node"]
+script = ExtResource("1_v86v6")

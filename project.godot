@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
+[application]
+
+config/name="ASA TCG"
+run/main_scene="uid://bpglj87percvh"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Glob="*res://Code/Globals/Globals.gd"
+Convert="*res://Code/Globals/Conversions.gd"
+Consts="*res://Code/Globals/Constants.gd"
+SigBus="*res://Code/Globals/SignalBus.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Addons/": "orange",
+"res://Art/": "red",
+"res://Audio/": "red",
+"res://Code/": "blue",
+"res://Resources/": "purple",
+"res://Scenes/": "green",
+"res://Shaders/": "pink",
+"res://Themes/": "pink",
+"res://addons/": "orange"
+}

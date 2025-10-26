@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmds4boaksl7"]
+
+[ext_resource type="Script" uid="uid://ym6mok5iaep5" path="res://Scenes/UIComponents/HeadFoot/dragable_control.gd" id="1_6o5uk"]
+[ext_resource type="Script" uid="uid://bpwonaoxwmwfg" path="res://Scenes/UIComponents/HeadFoot/drag.gd" id="2_u6t17"]
+
+[node name="Movable" type="Button"]
+show_behind_parent = true
+visibility_layer = 0
+mouse_default_cursor_shape = 6
+script = ExtResource("1_6o5uk")
+
+[node name="Drag" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_u6t17")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="ended" from="Drag" to="." method="_on_drag_ended"]
+[connection signal="started" from="Drag" to="." method="_on_drag_started"]

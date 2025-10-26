@@ -1,0 +1,96 @@
+{
+  "column_properties": {
+    "res://Resources/Cards/": {
+      "energy_properties": {
+        "visibility": 0.0
+      },
+      "fossil": {
+        "visibility": 0.0
+      },
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "pokemon_properties": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      },
+      "resource_path": {
+        "visibility": 0.0
+      },
+      "trainer_properties": {
+        "visibility": 0.0
+      }
+    },
+    "res://Resources/Cards/1 ex Ruby & Saphire/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      },
+      "resource_path": {
+        "visibility": 0.0
+      }
+    },
+    "res://Resources/Cards/1 ex Ruby & Saphire::energy_properties/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
+    "res://Resources/Cards/1 ex Ruby & Saphire::pokemon_properties/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
+    "res://Resources/Cards/1 ex Ruby & Saphire::trainer_properties/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    }
+  },
+  "recent_paths": [
+    "res://Resources/Cards/"
+  ],
+  "table_functions": {
+    "filter": [
+      "return true",
+      "if ToolBool.has_effect(res, [\"CardDisrupt\"]):\n\treturn true\nreturn false",
+      "return ToolBool.has_ability(res)",
+      "return res.pokemon_properties",
+      "if ToolBool.has_effect(res, [\"Mimic\"]):\n\treturn true\nreturn false",
+      "if ToolBool.has_effect(res, [\"Buff\"]):\n\treturn true\nreturn false",
+      "if ToolBool.has_effect(res, [\"Disable\"]):\n\treturn true\nreturn false",
+      "if ToolBool.has_effect(res, [\"EnMov\"]):\n\treturn true\nreturn false",
+      "if not res.pokemon_properties:\n\treturn false\nif res.pokemon_properties.pokebody:\n\tif res.pokemon_properties.pokebody.effect:\n\t\treturn true\nif res.pokemon_properties.pokepower:\n\tif res.pokemon_properties.pokepower.effect:\n\t\treturn true"
+    ],
+    "process": [
+      "return value"
+    ]
+  }
+}

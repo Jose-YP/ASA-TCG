@@ -1,0 +1,137 @@
+@tool
+##Common conversions that need to be handled globally
+extends Node
+
+var all_lists: Array[Dictionary]
+
+#region STRINGS
+func reformat(text: String, user: String = "<null>") -> String:
+	var result: String = text
+	var italics_search = RegEx.new()
+	var name_search = RegEx.new()
+	
+	italics_search.compile(r"\(.*?\)")
+	name_search.compile(r"\[name\]")
+	
+	var italics = italics_search.search_all(text)
+	var names = name_search.search_all(text)
+	
+	for found in italics:
+		#Anything in parenthesis should be italisized
+		var original: String = found.get_string(0)
+		var wrapped: String = "[i]" + original + "[/i]"
+		
+		result = result.replace(original, wrapped)
+	
+	for found in names:
+		var original: String = found.get_string(0)
+		var replaced: String = "[u]" + user + "[/u]"
+		result = result.replace(original, replaced)
+	
+	return result
+
+func stack_into_string(stack: Consts.STACKS) -> String:
+	match stack:
+		Consts.STACKS.HAND:
+			return "Hand"
+		Consts.STACKS.DISCARD:
+			return "Discard"
+		Consts.STACKS.DECK:
+			return "Deck"
+		Consts.STACKS.LOST:
+			return "Lost Zone"
+		Consts.STACKS.PLAY:
+			return "In Play"
+		_:
+			printerr(stack, "Isn't recognized as a viable type")
+	return ""
+
+func slot_into_string(slot: Consts.SLOTS) -> String:
+	match slot:
+		Consts.SLOTS.ALL:
+			return ""
+		Consts.SLOTS.ACTIVE:
+			return "active "
+		Consts.SLOTS.BENCH:
+			return "benched "
+		Consts.SLOTS.TARGET:
+			return "targetted "
+		Consts.SLOTS.REST:
+			return "non-targetted "
+	return ""
+ 
+func side_into_string(side: Consts.SIDES) -> String:
+	match side:
+		Consts.SIDES.BOTH:
+			return "both "
+		Consts.SIDES.ATTACKING:
+			return "attacking "
+		Consts.SIDES.DEFENDING:
+			return "defending "
+		Consts.SIDES.SOURCE:
+			return "your "
+		Consts.SIDES.OTHER:
+			return "opposing "
+	return ""
+
+func combine_strings(string_array: Array[String], conjuction: String = "and") -> String:
+	var final: String = ""
+	
+	for i in range(string_array.size()):
+		if final == "":
+			final += string_array[i]
+		elif i == string_array.size() - 1 and conjuction:
+			final += str(" ", conjuction, " ", string_array[i])
+		else:
+			if conjuction:
+				final += str(", ", string_array[i])
+			else:
+				final += str(" ", string_array[i])
+	return final
+
+#Ask, Identifier
+func combine_flags_to_string(flags_strings: Array[String], flag_int: int, conjuction: String = "or"):
+	var looking_for: Array[String]
+	for flag in range(flags_strings.size()):
+		if flag_int & 2 ** flag: looking_for.append(flags_strings[flag])
+	
+	return Convert.combine_strings(looking_for, conjuction)
+#endregion
+
+#region STRING ARRAYS
+func flags_to_allowed_array(allowed_flags: int) -> Array[String]:
+	var allowed_array: Array[String]
+	var checking: float = allowed_flags
+	for i in range(Consts.allowed_list_flags.size()-1, -1, -1):
+		print(2 ** i, checking, checking / 2 ** i)
+		if checking / 2 ** i > 0:
+			checking -= 2 ** i
+			allowed_array.append(Consts.allowed_list_flags[i])
+			print("Added allowed: ", allowed_array)
+		
+		pass
+	
+	return allowed_array
+#endregion
+
+#region BOOLEEANS
+#For use in lists
+func default_card_sort(button1: Button, button2: Button):
+	var card1: Card = button1.card
+	var card2: Card = button2.card
+	#First prioritize allowed cards
+	var first_bool: bool = false
+	var second_bool: bool = false
+	
+	for list in all_lists:
+		first_bool = list[card1] or first_bool
+		second_bool = list[card2] or second_bool
+	if first_bool and not second_bool:
+		return true
+	elif second_bool and not first_bool:
+		return false
+	
+	#If they're both (not) allowed check card priority
+	else:
+		return card1.card_priority(card2)
+#endregion

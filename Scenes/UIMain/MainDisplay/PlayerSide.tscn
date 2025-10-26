@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dognokjork36j"]
+
+[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/BenchSlot.tscn" id="1_j2t4b"]
+[ext_resource type="Script" uid="uid://bdxsijaewfo8b" path="res://Scenes/UIMain/MainDisplay/Side.gd" id="1_j016u"]
+[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/ActiveSlot.tscn" id="1_n754v"]
+[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/etc_display.tscn" id="4_5awab"]
+
+[node name="PlayerSide" type="Control"]
+layout_mode = 3
+anchor_left = 0.053
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -0.240002
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j016u")
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -6.0
+offset_right = 1002.0
+offset_bottom = 332.0
+metadata/_edit_group_ = true
+
+[node name="CurrentActive" type="VBoxContainer" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActivePokemon" parent="Main/CurrentActive" instance=ExtResource("1_n754v")]
+unique_name_in_owner = true
+layout_mode = 2
+list_direction = 1
+
+[node name="Benches" type="HBoxContainer" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BenchPokemon" parent="Main/Benches" instance=ExtResource("1_j2t4b")]
+layout_mode = 2
+list_direction = 1
+
+[node name="BenchPokemon2" parent="Main/Benches" instance=ExtResource("1_j2t4b")]
+layout_mode = 2
+
+[node name="BenchPokemon3" parent="Main/Benches" instance=ExtResource("1_j2t4b")]
+layout_mode = 2
+
+[node name="BenchPokemon4" parent="Main/Benches" instance=ExtResource("1_j2t4b")]
+layout_mode = 2
+
+[node name="BenchPokemon5" parent="Main/Benches" instance=ExtResource("1_j2t4b")]
+layout_mode = 2
+
+[node name="ETC" parent="." instance=ExtResource("4_5awab")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 509.0
+offset_top = 45.0
+offset_right = 956.0
+offset_bottom = 165.0

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://f5mxg3phjwb7"]
+
+[ext_resource type="Theme" uid="uid://bfw6ylcttychc" path="res://Themes/Themes/AverageButton.tres" id="1_rbsrj"]
+[ext_resource type="Script" uid="uid://snbf2n8kon1p" path="res://Scenes/UIMain/MainDisplay/etc_display.gd" id="2_pstaf"]
+[ext_resource type="PackedScene" uid="uid://o2i8sw2v3cqb" path="res://Scenes/UIMain/MainDisplay/stack_button.tscn" id="5_faxoe"]
+[ext_resource type="Texture2D" uid="uid://o5e301uqc04v" path="res://Art/ProjSpecific/recycle-bin.png" id="7_dle7r"]
+[ext_resource type="Texture2D" uid="uid://brqr21f7qxl3r" path="res://Art/ProjSpecific/cards.png" id="9_ako2g"]
+[ext_resource type="Texture2D" uid="uid://1p8sc5qqkp2w" path="res://Art/ProjSpecific/palm-of-hand.png" id="10_n01m2"]
+
+[node name="ETC" type="HBoxContainer"]
+offset_left = 552.0
+offset_top = 39.0
+offset_right = 1000.0
+offset_bottom = 159.0
+theme = ExtResource("1_rbsrj")
+alignment = 2
+script = ExtResource("2_pstaf")
+metadata/_edit_group_ = true
+
+[node name="Stacks" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="Discards" type="HBoxContainer" parent="Stacks"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DiscardButton" parent="Stacks/Discards" instance=ExtResource("5_faxoe")]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("7_dle7r")
+list = 2
+
+[node name="Hand" type="HBoxContainer" parent="Stacks"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HandButton" parent="Stacks/Hand" instance=ExtResource("5_faxoe")]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("10_n01m2")
+
+[node name="Deck" type="HBoxContainer" parent="Stacks"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DeckButton" parent="Stacks/Deck" instance=ExtResource("5_faxoe")]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("9_ako2g")
+list = 1

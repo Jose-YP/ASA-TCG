@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm07a7wgsaxxp"]
+
+[ext_resource type="Script" uid="uid://cdt53y350w0rc" path="res://Scenes/Fundies/CardPlayer.gd" id="1_g6ryq"]
+[ext_resource type="PackedScene" uid="uid://c2dyutb22u6x8" path="res://Scenes/Fundies/UIActions.tscn" id="2_so688"]
+
+[node name="CardPlayer" type="Node"]
+script = ExtResource("1_g6ryq")
+
+[node name="UIActions" parent="." instance=ExtResource("2_so688")]

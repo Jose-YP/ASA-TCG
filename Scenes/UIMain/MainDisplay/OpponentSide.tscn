@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvpkx1fqkwvd7"]
+
+[ext_resource type="Script" uid="uid://bdxsijaewfo8b" path="res://Scenes/UIMain/MainDisplay/Side.gd" id="1_iv2kv"]
+[ext_resource type="PackedScene" uid="uid://df8x227c7a8q4" path="res://Scenes/UIMain/MainDisplay/BenchSlot.tscn" id="1_o88tv"]
+[ext_resource type="PackedScene" uid="uid://drg0sr7jdfiel" path="res://Scenes/UIMain/MainDisplay/ActiveSlot.tscn" id="2_fs4jj"]
+[ext_resource type="PackedScene" uid="uid://f5mxg3phjwb7" path="res://Scenes/UIMain/MainDisplay/etc_display.tscn" id="3_he6l3"]
+
+[node name="OpponentSide" type="Control"]
+layout_mode = 3
+anchor_left = 0.03
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 0.032
+offset_left = -0.400002
+offset_top = -0.0400009
+offset_bottom = -0.0400009
+grow_horizontal = 2
+script = ExtResource("1_iv2kv")
+home = false
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 991.0
+offset_bottom = 459.0
+
+[node name="Benches" type="HBoxContainer" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="BenchPokemon" parent="Main/Benches" instance=ExtResource("1_o88tv")]
+layout_mode = 2
+player = false
+home = false
+
+[node name="BenchPokemon2" parent="Main/Benches" instance=ExtResource("1_o88tv")]
+layout_mode = 2
+player = false
+home = false
+
+[node name="BenchPokemon3" parent="Main/Benches" instance=ExtResource("1_o88tv")]
+layout_mode = 2
+player = false
+home = false
+
+[node name="BenchPokemon4" parent="Main/Benches" instance=ExtResource("1_o88tv")]
+layout_mode = 2
+player = false
+home = false
+
+[node name="BenchPokemon5" parent="Main/Benches" instance=ExtResource("1_o88tv")]
+layout_mode = 2
+player = false
+home = false
+
+[node name="Bottom" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="ETCContainer" type="VBoxContainer" parent="Main/Bottom"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Bottom/ETCContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="ETC" parent="Main/Bottom/ETCContainer" instance=ExtResource("3_he6l3")]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 0
+home = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Bottom"]
+layout_mode = 2
+theme_override_constants/margin_right = 350
+
+[node name="CurrentActive" type="VBoxContainer" parent="Main/Bottom"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="ActivePokemon" parent="Main/Bottom/CurrentActive" instance=ExtResource("2_fs4jj")]
+unique_name_in_owner = true
+layout_mode = 2
+player = false
+home = false
